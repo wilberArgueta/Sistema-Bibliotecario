@@ -26,7 +26,7 @@ public class DaoLibro {
 
             }
         } catch (SQLException e) {
-            System.out.println("Error extrayendo los datos de Libros\n");
+            System.out.println("Error extrayendo los datos de LibrosView\n");
             e.printStackTrace();
 
         } finally {
