@@ -5,44 +5,21 @@ import com.biblioteca.model.Usuario;
 import com.biblioteca.repository.dao.DaoUsuario;
 
 import javax.swing.*;
+import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.util.List;
 
-public class UsuariosView extends JPanel {
+public class UsuariosView extends JScrollPane {
     private JTable tableUsuarios;
     private UsuarioModelTable usuarioModelTable;
     private JScrollPane jScrollPane;
-    private DaoUsuario daoUsuario;
+    public DaoUsuario daoUsuario;
 
     public UsuariosView() {
-        tabla();
-        panel();
         initComponent();
     }
 
     public void initComponent() {
-
-        setSize(1000, 500);
-        setLocation(70, 120);
-        setVisible(true);
-        //setBackground(new Color(0xD40214));
-        System.out.println("Creando el panel");
-        setLayout(new FlowLayout());
-        add(jScrollPane);
-        repaint();
-    }
-
-    public void panel() {
-        jScrollPane = new JScrollPane();
-        //jScrollPane.setLayout(new FlowLayout());
-        jScrollPane.setVisible(true);
-        jScrollPane.setViewportView(tableUsuarios);
-        System.out.println("Creando el scroll pane");
-
-
-    }
-
-    public void tabla() {
         daoUsuario = new DaoUsuario();
         usuarioModelTable = new UsuarioModelTable();
 
@@ -50,10 +27,18 @@ public class UsuariosView extends JPanel {
         for (Usuario usuario : listaUser) {
             usuarioModelTable.addUser(usuario);
         }
+
         tableUsuarios = new JTable(usuarioModelTable);
         tableUsuarios.setVisible(true);
         tableUsuarios.setFillsViewportHeight(true);
-
+        setSize(1000, 500);
+        setLocation(70, 120);
+        setVisible(true);
+        System.out.println("Creando el panel");
+        setBorder(new TitledBorder("Usuarios menu"));
+        setViewportView(tableUsuarios);
 
     }
+
+
 }

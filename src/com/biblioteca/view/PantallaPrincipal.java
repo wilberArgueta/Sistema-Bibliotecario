@@ -7,6 +7,7 @@ public class PantallaPrincipal extends JFrame {
 
     private int flagView = 0;
     private Menu m;
+    private MenuEdicion menuEdicion;
 
     private LibrosView librosView;
     private UsuariosView usuariosView;
@@ -23,10 +24,12 @@ public class PantallaPrincipal extends JFrame {
 
     private void initComponent() {
         m = new Menu();
+        menuEdicion = new MenuEdicion();
+        menuEdicion.setVisible(false);
         paneles[0] = null;
         paneles[1] = librosView = new LibrosView();
-
-        paneles[2] = usuariosView = new UsuariosView();
+        paneles[2] = null;
+        usuariosView = new UsuariosView();
         paneles[3] = alquilerView = new AlquilerView();
         paneles[4] = autorView = new AutorView();
         paneles[5] = editorialView = new EditorialView();
@@ -39,6 +42,7 @@ public class PantallaPrincipal extends JFrame {
         setVisible(true);
         setResizable(false);
         add(m);
+        add(menuEdicion);
 
         repaint();
 
@@ -60,6 +64,7 @@ public class PantallaPrincipal extends JFrame {
                 remove(paneles[flagView]);
             }
             getContentPane().add(usuariosView);
+            menuEdicion.setVisible(true);
             repaint();
             flagView = 2;
         });
