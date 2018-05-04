@@ -1,4 +1,4 @@
-package com.biblioteca.view;
+package com.biblioteca.view.modulos;
 
 import com.biblioteca.controller.UsuarioModelTable;
 import com.biblioteca.model.Usuario;
@@ -38,6 +38,14 @@ public class UsuariosView extends JScrollPane {
         setBorder(new TitledBorder("Usuarios menu"));
         setViewportView(tableUsuarios);
 
+    }
+    public UsuarioModelTable getUsuarioModelTable() {
+
+        return this.usuarioModelTable;
+    }
+
+    public JTable getTableUsuarios() {
+        return this.tableUsuarios;
     }
 
 

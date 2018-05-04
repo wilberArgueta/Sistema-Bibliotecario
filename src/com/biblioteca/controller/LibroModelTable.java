@@ -1,42 +1,35 @@
 package com.biblioteca.controller;
 
-import com.biblioteca.model.Usuario;
+import com.biblioteca.model.Libro_Publicacion;
 
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
 import java.util.LinkedList;
 
-public class UsuarioModelTable implements TableModel {
-
-    private LinkedList suscriptores = new LinkedList();
+public class LibroModelTable implements TableModel {
     private LinkedList datos = new LinkedList();
-    private String[] columnsName = {"ID", "Nombre", "Apellido", "Fecha Nacimiento", "Direccion", "Telefono", "Email"};
-    private Object[] columsClass = {Integer.class, String.class, String.class, String.class, String.class, String.class, String.class};
-
+    private LinkedList suscriptores = new LinkedList();
+    private String columnsName[] = {"Libro", "Autor", "Fecha Publicacion", "Editorial"};
 
     @Override
     public int getRowCount() {
-
         return datos.size();
     }
 
     @Override
     public int getColumnCount() {
-
         return columnsName.length;
     }
 
     @Override
     public String getColumnName(int columnIndex) {
-
         return columnsName[columnIndex];
     }
 
     @Override
     public Class<?> getColumnClass(int columnIndex) {
-
-        return (Class<?>) columsClass[columnIndex];
+        return String.class;
     }
 
     @Override
@@ -46,60 +39,42 @@ public class UsuarioModelTable implements TableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Usuario usuario = (Usuario) datos.get(rowIndex);
-
+        Libro_Publicacion libro = (Libro_Publicacion) datos.get(rowIndex);
         switch (columnIndex) {
-
             case 0:
-                return usuario.getCod_usuario();
+                return libro.getTitulo();
             case 1:
-                return usuario.getNombreUsuario();
+                return libro.getNombreAutor();
             case 2:
-                return usuario.getApellido();
+                return libro.getfPublicacion();
             case 3:
-                return usuario.getF_nacimiento();
-            case 4:
-                return usuario.getDireccion();
-            case 5:
-                return usuario.getTelefono();
-            case 6:
-                return usuario.getEmail();
-
-
+                return libro.getNombreEditorial();
         }
-
 
         return null;
     }
 
     @Override
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
-        Usuario usuario = (Usuario) datos.get(rowIndex);
-
+        Libro_Publicacion libro = (Libro_Publicacion) datos.get(rowIndex);
         switch (columnIndex) {
-
             case 0:
-               usuario.setCod_usuario((int)aValue);
+                libro.setTitulo((String)aValue);
             case 1:
-                 usuario.setNombreUsuario((String) aValue);
+                libro.setNombreAutor((String)aValue);
             case 2:
-                 usuario.setApellido((String) aValue);
+                libro.setfPublicacion((String)aValue);
             case 3:
-                 usuario.setF_nacimiento((String) aValue);
-            case 4:
-                 usuario.setDireccion((String) aValue);
-            case 5:
-                 usuario.setTelefono((String) aValue);
-            case 6:
-                 usuario.setEmail((String) aValue);
+                libro.setNombreEditorial((String)aValue);
         }
 
-        addUser(usuario);
+        addLibro(libro);
+
 
     }
-    public Usuario getValue(int fila){
+    public Libro_Publicacion getValue(int fila){
 
-        return (Usuario) datos.get(fila);
+        return (Libro_Publicacion)datos.get(fila);
     }
     public void borrar(int fila){
         datos.remove(fila);
@@ -125,14 +100,16 @@ public class UsuarioModelTable implements TableModel {
 
     }
 
-    public void addUser(Usuario u) {
-        System.out.println("Agregando Usuario");
-        datos.add(u);
-        TableModelEvent tme = new TableModelEvent(this, this.getRowCount() - 1,
+    public void addLibro(Libro_Publicacion libro_publicacion) {
+        datos.add(libro_publicacion);
+
+        TableModelEvent tableModelEvent = new TableModelEvent(this, this.getRowCount() - 1,
                 this.getRowCount() - 1, TableModelEvent.ALL_COLUMNS, TableModelEvent.INSERT);
+
         for (int i = 0; i < suscriptores.size(); i++) {
-            ((TableModelListener)suscriptores.get(i)).tableChanged(tme);;
+            ((TableModelListener) suscriptores.get(i)).tableChanged(tableModelEvent);
         }
+
 
     }
 }

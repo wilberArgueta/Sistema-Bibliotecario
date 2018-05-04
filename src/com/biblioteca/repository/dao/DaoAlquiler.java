@@ -20,9 +20,16 @@ public class DaoAlquiler {
         ResultSet rs = con.executeQuery(s);
         try {
             while (rs.next()) {
-                alquileres.add(new Alquiler(rs.getInt(1), rs.getString(2),
-                        rs.getString(3), rs.getInt(4),
-                        rs.getInt(5)));
+                Alquiler a = new Alquiler();
+                a.setIdAlquiler(rs.getInt(1));
+                a.setCod_libro(rs.getInt(2));
+                a.setCod_usuario(rs.getInt(3));
+               a.setNombreUsuario(rs.getString(4));
+                a.setTitulo(rs.getString(5));
+                a.setfAdquirido(rs.getString(6));
+                a.setfDevolucion(rs.getString(7));
+
+                alquileres.add(a);
 
             }
         } catch (SQLException a) {

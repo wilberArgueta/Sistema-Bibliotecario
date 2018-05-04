@@ -2,8 +2,7 @@ CREATE TABLE libros(
     cod_libro INT NOT NULL AUTO_INCREMENT,
     titulo VARCHAR(25) NOT NULL,
     l_isbm CHAR(13) NOT NULL,
-    CONSTRAINT pk_cod_libro PRIMARY KEY(cod_libro),
-    CONSTRAINT pk_l_isbm PRIMARY KEY(l_isbm)
+    CONSTRAINT pk_cod_libro PRIMARY KEY(cod_libro)
 ); 
 
 CREATE TABLE autores(
@@ -67,5 +66,10 @@ CREATE TABLE tb_alquiler(
     CONSTRAINT fk_a_usuario FOREIGN KEY(cod_usuario) REFERENCES usuarios(cod_usuario)
 
 )
-
+--------------------query sql libros ------
+SELECT libros.titulo, autores.nombre,tb_libro_publicacion.f_publicacion,editoriales.nombre FROM `libros`
+INNER JOIN tb_libro_autores on tb_libro_autores.cod_libro = libros.cod_libro
+INNER JOIN autores on autores.cod_autor = tb_libro_autores.cod_autor
+INNER JOIN tb_libro_publicacion ON tb_libro_publicacion.cod_libro = libros.cod_libro
+INNER JOIN editoriales on editoriales.cod_editorial = tb_libro_publicacion.cod_editorial
 

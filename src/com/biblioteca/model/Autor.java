@@ -1,6 +1,6 @@
 package com.biblioteca.model;
 
-public class Autor {
+public class Autor extends Editorial{
     private int cod_autor;
     private String nombre;
     private String apellido;
@@ -29,19 +29,19 @@ public class Autor {
         this.cod_autor = cod_autor;
     }
 
-    public String getNombre() {
+    public String getNombreAutor() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombreAutor(String nombreAutor) {
+        this.nombre = nombreAutor;
     }
 
-    public String getApellido() {
+    public String getApellidoAutor() {
         return apellido;
     }
 
-    public void setApellido(String apellido) {
+    public void setApellidoAutor(String apellido) {
         this.apellido = apellido;
     }
 

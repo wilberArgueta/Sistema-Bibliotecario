@@ -5,8 +5,8 @@ import java.sql.*;
 
 public class Conexion {
 
-    private final String user = "administradorDB";
-    private final String pass = "administrador";
+    private final String user = "admin";
+    private final String pass = "admin";
     private final String url = "jdbc:mysql://localhost/";
     private final String db = "Biblioteca";
     private Connection connection = null;

@@ -20,8 +20,16 @@ public class DaoLibroPublicacion {
         ResultSet rs = con.executeQuery(s);
         try {
             while (rs.next()) {
-                libroPublicacion.add(new Libro_Publicacion(rs.getInt(1), rs.getString(2),
-                        rs.getInt(3), rs.getInt(4)));
+                Libro_Publicacion l = new Libro_Publicacion();
+                l.setIdLibroPublicacion(rs.getInt(1));
+                l.setCod_libro(rs.getInt(2));
+                l.setCod_editorial(rs.getInt(3));
+                l.setTitulo(rs.getString(4));
+                l.setNombreAutor(rs.getString(5));
+                l.setfPublicacion(rs.getString(6));
+                l.setNombreEditorial(rs.getString(7));
+
+                libroPublicacion.add(l);
 
             }
         } catch (SQLException libroPublicacion) {

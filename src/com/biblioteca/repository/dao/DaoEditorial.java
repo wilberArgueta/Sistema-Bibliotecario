@@ -46,7 +46,7 @@ public class DaoEditorial {
         con = new Conexion();
         String sql = "INSERT INTO `editoriales` " +
                 "(`cod_editorial`, `nombre`, `direccion`, `telefono`, `email`) " +
-                "VALUES (NULL, '" + e.getNombre() + "', '" + e.getDireccion() + "', '" + e.getTelefono() + "', '" + e.getEmail() + "')";
+                "VALUES (NULL, '" + e.getNombreEditorial() + "', '" + e.getDireccion() + "', '" + e.getTelefono() + "', '" + e.getEmail() + "')";
 
         return con.query(sql);
     }
@@ -55,7 +55,7 @@ public class DaoEditorial {
     public String update(Editorial e) {
         con = new Conexion();
         String sql = "UPDATE `editoriales` SET" +
-                " `nombre` = '" + e.getNombre() + "', `direccion` = '" + e.getDireccion() + "', " +
+                " `nombre` = '" + e.getNombreEditorial() + "', `direccion` = '" + e.getDireccion() + "', " +
                 "`telefono` = '" + e.getTelefono() + "', `email` = '" + e.getEmail() + "' " +
                 "WHERE `editoriales`.`cod_editorial` =" + e.getCod_editorial();
 

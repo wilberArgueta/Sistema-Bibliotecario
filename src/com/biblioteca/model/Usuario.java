@@ -1,20 +1,22 @@
 package com.biblioteca.model;
 
-public class Usuario {
+public class Usuario extends Libro {
     private int cod_usuario;
-    private String nombre;
+    private String nombreUsuario;
     private String apellido;
     private String f_nacimiento;
     private String direccion;
     private String telefono;
     private String email;
 
-    public Usuario() {
+    Usuario() {
     }
 
-    public Usuario(int cod_usuario, String nombre, String apellido, String f_nacimiento, String direccion, String telefono, String email) {
+    public Usuario(int cod_usuario, String nombre,
+                   String apellido, String f_nacimiento,
+                   String direccion, String telefono, String email) {
         this.cod_usuario = cod_usuario;
-        this.nombre = nombre;
+        this.nombreUsuario = nombre;
         this.apellido = apellido;
         this.f_nacimiento = f_nacimiento;
         this.direccion = direccion;
@@ -30,12 +32,12 @@ public class Usuario {
         this.cod_usuario = cod_usuario;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombreUsuario() {
+        return nombreUsuario;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
     }
 
     public String getApellido() {

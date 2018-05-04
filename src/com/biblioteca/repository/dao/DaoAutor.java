@@ -46,7 +46,7 @@ public class DaoAutor {
         con = new Conexion();
         String sql = "INSERT INTO `autores` " +
                 "(`cod_autor`, `nombre`, `apellido`, `f_nacimiento`, `nacionalidad`, `email`) " +
-                "VALUES (NULL, '" + a.getNombre() + "','" + a.getApellido() + "" +
+                "VALUES (NULL, '" + a.getNombreEditorial() + "','" + a.getApellidoAutor() + "" +
                 "','"+a.getF_nacimiento()+"','"+a.getNacionalidad()+"','"+a.getEmail()+"')";
 
         return con.query(sql);
@@ -56,7 +56,7 @@ public class DaoAutor {
     public String update(Autor a) {
         con = new Conexion();
         String sql = "UPDATE `autores`" +
-                " SET `nombre` = '"+a.getNombre()+"', `apellido` = '"+a.getApellido()+"'," +
+                " SET `nombre` = '"+a.getNombreAutor()+"', `apellido` = '"+a.getApellidoAutor()+"'," +
                 " `f_nacimiento` = '"+a.getF_nacimiento()+"', `nacionalidad` = '"+a.getNacionalidad()+"'," +
                 " `email` = '"+a.getEmail()+"' WHERE `autores`.`cod_autor` ="+a.getCod_autor();
 

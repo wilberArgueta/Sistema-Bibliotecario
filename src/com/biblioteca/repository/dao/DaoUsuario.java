@@ -46,7 +46,7 @@ public class DaoUsuario {
         con = new Conexion();
         String sql = "INSERT INTO `usuarios` " +
                 "(`cod_usuario`, `nombre`, `apellido`, `f_nacimiento`, `direccion`, `telefono`, `email`) " +
-                "VALUES (NULL, '"+u.getNombre()+"', '"+u.getApellido()+"'," +
+                "VALUES (NULL, '"+u.getNombreEditorial()+"', '"+u.getApellido()+"'," +
                 " '"+u.getF_nacimiento()+"', '"+u.getDireccion()+"', '"+u.getTelefono()+"'," +
                 " '"+u.getEmail()+"');";
 
@@ -57,7 +57,7 @@ public class DaoUsuario {
     public String update(Usuario u) {
         con = new Conexion();
         String sql = "UPDATE `usuarios`" +
-                " SET `nombre` = '"+u.getNombre()+"', `apellido` = '"+u.getApellido()+"', " +
+                " SET `nombre` = '"+u.getNombreEditorial()+"', `apellido` = '"+u.getApellido()+"', " +
                 "`f_nacimiento` = '"+u.getF_nacimiento()+"', `direccion` = '"+u.getDireccion()+"', " +
                 "`telefono` = '"+u.getTelefono()+"', `email` = '"+u.getEmail()+"' " +
                 "WHERE `usuarios`.`cod_usuario` = " + u.getCod_usuario();

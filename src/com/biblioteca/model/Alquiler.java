@@ -1,6 +1,6 @@
 package com.biblioteca.model;
 
-public class Alquiler {
+public class Alquiler extends Usuario {
     private int idAlquiler;
     private String fAdquirido;
     private  String fDevolucion;

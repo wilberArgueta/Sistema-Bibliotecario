@@ -1,6 +1,6 @@
 package com.biblioteca.model;
 
-public class Libro_Publicacion {
+public class Libro_Publicacion extends Libro {
 
     private int idLibroPublicacion;
     private String fPublicacion;

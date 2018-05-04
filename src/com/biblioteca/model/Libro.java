@@ -1,6 +1,6 @@
 package com.biblioteca.model;
 
-public class Libro {
+public class Libro extends Autor {
 
 
     private int cod_libro;

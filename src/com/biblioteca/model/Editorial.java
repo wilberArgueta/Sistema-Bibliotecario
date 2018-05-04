@@ -1,9 +1,9 @@
 package com.biblioteca.model;
 
-public class Editorial {
+public class Editorial{
 
     private  int cod_editorial;
-    private String nombre;
+    private String nombreEditorial;
     private String direccion;
     private String telefono;
     private String email;
@@ -11,9 +11,9 @@ public class Editorial {
     public Editorial() {
     }
 
-    public Editorial(int cod_editorial, String nombre, String direccion, String telefono, String email) {
+    public Editorial(int cod_editorial, String nombreEditorial, String direccion, String telefono, String email) {
         this.cod_editorial = cod_editorial;
-        this.nombre = nombre;
+        this.nombreEditorial = nombreEditorial;
         this.direccion = direccion;
         this.telefono = telefono;
         this.email = email;
@@ -27,12 +27,12 @@ public class Editorial {
         this.cod_editorial = cod_editorial;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombreEditorial() {
+        return nombreEditorial;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombreEditorial(String nombreEditorial) {
+        this.nombreEditorial = nombreEditorial;
     }
 
     public String getDireccion() {
